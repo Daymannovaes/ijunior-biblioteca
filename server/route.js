@@ -2,7 +2,7 @@ var controller = require('./controller/index');
 
 var Route = function(app, express) {	
 
-	app.use('/public', express.static('../assets'));
+	app.use('/public', express.static(__dirname + "/../assets"));
 
 	app.get('/', function(req, res) {
 		res.sendFile('index.html', {root: __dirname + "/../"});
