@@ -1,0 +1,16 @@
+{
+  "name": "biblioteca-ijunior",
+  "version": "1.0.0",
+  "description": "A simple libary to store books, built with Node.js, SQL and pure Javascript",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daymannovaes/ijunior-biblioteca"
+  },
+  "author": "Dayman Novaes",
+  "homepage": "https://daymannovaes.github.io/ijunior-biblioteca",
+  "devDependencies": {
+    "express": "^4.12.3",
+    "mongoose": "^4.0.2"
+  }
+}
