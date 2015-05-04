@@ -6,6 +6,10 @@ A aplicação funciona apenas para cadastro de livros e pessoas, mostrando quant
 
 Algumas validações são feitas, como por exemplo: email repetido, campos required vazios, entre outros.
 
+A aplicação pode ser vista em funcionamento em `http://ijunior.dayman.me`
+
+Para funcionamento local, é necessário `mongoDB` e `nodejs`
+
 
 
 ### Estrutura da aplicação
