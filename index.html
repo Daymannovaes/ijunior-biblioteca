@@ -13,7 +13,7 @@
 	
 	<body>
 		<section class="center" style="margin-top:3%">
-			<h1 class="title">Biblioteca &nbsp;&nbsp;&nbsp;<span>IJunior</span></h1>
+			<h1 class="title">Biblioteca &nbsp;&nbsp;&nbsp;<span>IJunior</span> <span id="count"></span></h1>
 			<div class="row" style="height: calc(100% - 200px);">
 				<div class=" col-md-3 col-xs-12" style="height: 100%">
 					<section id="ask" class="dcontainer">
@@ -55,7 +55,7 @@
 									<label for="phone">Telefone</label>
 									<input type="text" class="form-control" id="phone" placeholder="Telefone">
 								</div>
-								<button class="btn">Cadastrar</button>					
+								<button class="btn">Cadastrar</button>				
 							</form>
 						</div>
 
@@ -63,16 +63,16 @@
 							<h3 class="title">Cadastro de Livros</h3>
 							<form action="">
 								<div class="form-group">
-									<label for="title">Título</label>
+									<label for="title">Título<i class="required"></i></label>
 									<input type="text" class="form-control" id="title" placeholder="Título">
 								</div>
 								<div class="form-group">
-									<label for="author">Autor</label>
+									<label for="author">Autor<i class="required"></i></label>
 									<input type="text" class="form-control" id="author" placeholder="Autor">
 								</div>
 								<div class="form-group">
-									<label for="editor">Editora</label>
-									<input type="text" class="form-control" id="editor" placeholder="Editora">
+									<label for="editor">Quantidade no estoque</label>
+									<input type="text" class="form-control" id="amount" placeholder="Quantidade">
 								</div>
 								<button class="btn">Cadastrar</button>					
 							</form>
@@ -84,5 +84,6 @@
 			</div>
 		</section>
 	<script src="public/js/index.js"></script> 
+	<script src="public/js/request.js"></script> 
 	</body>
 </html>

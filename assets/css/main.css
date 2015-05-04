@@ -11,6 +11,11 @@ h1.title span {
 	color: #030087;
 	font-size: 40px;
 }
+h1.title span#count {
+	color: initial;
+	font-size: 12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
 section.center {
 	width: 90%;
@@ -50,6 +55,9 @@ section.center {
 	padding: 5px;
 	border-radius: 4px;
 	margin-bottom: 5px;
+}
+#msgs ul li.success {
+	background-color: #4ABE31;
 }
 
 #msgs span {

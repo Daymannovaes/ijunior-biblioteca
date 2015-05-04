@@ -31,12 +31,15 @@
 })();
 
 (function($public) {
+	'use strict';
+
 	var ul = document.querySelector("#msgs ul");
 
 	var span = document.querySelector("#msgs span");
 
-	var li = function(text) {
+	var li = function(text, success) {
 		var r = document.createElement("li");
+		success && r.classList.add("success");
 		r.innerHTML = text;
 
 		return r;
@@ -46,9 +49,9 @@
 		ul.innerHTML = "";
 		span.innerHTML = "Aqui ficam as mensagens do formulário";
 	};
-	$public.showMsg = function(msg) {
+	$public.showMsg = function(msg, success) {
 		span.innerHTML = "";
-		ul.appendChild(li(msg));
+		ul.appendChild(li(msg, success));
 	};
 })(window);
 
@@ -86,12 +89,35 @@
 		}
 
 		if(!document.querySelector("#msgs ul li"))
-			doSubmit();
+			doSubmit(form);
 	};
 
-	var doSubmit = function() {
-		//post ajax
-		console.log("pessoa cadastrada (mentira)");
+	var doSubmit = function(form) {
+		var req = {
+			name: form.name.value,
+			email: form.email.value,
+			gender: form.gender.value,
+			phone: form.phone.value
+		};
+
+		$http.post('/person', req, function(data, status) {
+			if(status == 400) {
+				showMsg("Há um erro na requisição");
+			}
+			else if(status == 403) {
+				showMsg("Já existe alguém com este email");
+			}
+			else if(status == 500) {
+				showMsg("Houve um erro ao salvar no banco de dados");
+			}
+			else if(status == 501) {
+				showMsg("Houve um erro no servidor");
+			}
+			else if(status == 200) {
+				showMsg("'" + form.name.value + "' cadastrado com sucesso!", true);
+				refresh();
+			}
+		});
 	};
 
 	document.querySelector("#people form").onsubmit = function(e) {
@@ -121,22 +147,35 @@
 		else {
 			form.author.style.outline = "0px";
 		}
-		if(!form.editor.value || form.editor.value.length == 0) {
-			form.editor.style.outline = "5px auto #F44";
-			showMsg("Qual a editora?");
-		}
-		else {
-			form.editor.style.outline = "0px";
-		}
 
 		if(!document.querySelector("#msgs ul li"))
-			doSubmit();
+			doSubmit(form);
 	};
 
-	var doSubmit = function() {
-		//post ajax
+	var doSubmit = function(form) {
+		var req = {
+			name: form.title.value,
+			author_name: form.author.value,
+			category_id: null,
+			quantity_in_stock: form.amount.value || 0
+		};
 
-		console.log("livro cadastrado (mentira)");
+		$http.post('/book', req, function(data, status) {
+			if(status == 400) {
+				showMsg("Há um erro na requisição");
+			}
+			else if(status == 500) {
+				if(data == "database")
+					showMsg("Houve um erro ao salvar no banco de dados");
+				else
+					showMsg("Houve um erro no servidor");
+			}
+			else if(status == 200) {
+				showMsg("'" + form.title.value + "' cadastrado com sucesso!", true);
+				refresh();
+			}
+		});
+
 	};
 
 
