@@ -3,7 +3,7 @@ Cadastro de livros e pessoa para a biblioteca do IJunior
 
 ### Estrutura da aplicação
 
-#### assets
+    #### assets
     Todos os arquivos do frontend, como .css e .js   
     
 #### assets/js
