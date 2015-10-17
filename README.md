@@ -1,12 +1,10 @@
 # [Biblioteca IJunior](http://ijunior.dayman.me)
-Cadastro de livros e pessoa para a biblioteca do IJunior [`(link)`](http://ijunior.dayman.me)
+Cadastro de livros e pessoa para a biblioteca do IJunior
 
 ### Breve descrição
 A aplicação funciona apenas para cadastro de livros e pessoas, mostrando quantos cadastros já foram feitos. Porém, não é possível pesquisar o que já foi cadastrado.
 
 Algumas validações são feitas, como por exemplo: email repetido, campos required vazios, entre outros.
-
-A aplicação pode ser vista em funcionamento em http://ijunior.dayman.me
 
 Para funcionamento local, é necessário `mongoDB` e `nodejs`
 
